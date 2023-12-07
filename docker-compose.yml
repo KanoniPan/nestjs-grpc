@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  cart-database:
+    image: mysql/mysql-server
+    container_name: cart-database
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'cart'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3308:3306'
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data: {}
